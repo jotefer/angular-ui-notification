@@ -17,7 +17,8 @@ angular.module('ui-notification').provider('Notification', function () {
     closeOnClick: true,
     maxCount: 0, // 0 - Infinite
     container: 'body',
-    priority: 10
+    priority: 10,
+    details: true,
   };
 
   this.setOptions = function (options) {
@@ -83,6 +84,7 @@ angular.module('ui-notification').provider('Notification', function () {
         scope.delay = args.delay;
         scope.onClose = args.onClose;
         scope.onClick = args.onClick;
+        scope.details = args.details;
 
         var priorityCompareTop = function (a, b) {
           return a._priority - b._priority;
@@ -217,6 +219,11 @@ angular.module('ui-notification').provider('Notification', function () {
           } else {
             scope._templateElement.addClass('killed');
           }
+        };
+
+        scope.toggleDetails = function () {
+          scope.details = !scope.details;
+          $timeout(reposite);
         };
 
         $timeout(reposite);
