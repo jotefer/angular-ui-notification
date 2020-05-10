@@ -133,6 +133,8 @@ The options list:
 | closeOnClick      | true, false               | true                           | If true, messages are closed on click                                    |
 | maxCount          | Any integer               | 0                              | Show only [maxCount] last messages. Old messages will be killed. 0 - do not kill |
 | priority          | Any integer               | 10                             | The highier the priority is, the higher the notification will be         |
+| details           | true, false               | true                           | If message is present then its open by default        |
+| id                | Any string                | ''                             | Set id to notification so it can be later removed      |
 
 Also you can pass the "scope" option. This is an angular scope option Notification scope will be inherited from. This option can be passed only in the methods. The default value is $rootScope
 
@@ -148,6 +150,7 @@ Also you can pass the "scope" option. This is an angular scope option Notificati
 | Notification.warning()                 | Show the message with bootstrap's warn class    |
 | Notification.error()                   | Show the message with bootstrap's danger class  |
 | Notification.clearAll()                | Remove all shown messages                       |
+| Notification.clearById(id)             | Remove message by id                            |
 
 #### Notification service options
 
@@ -162,6 +165,8 @@ Also you can pass the "scope" option. This is an angular scope option Notificati
 | positionX      | "right", "left", "center"                        | `"right"                          |                                                                                                        |
 | replaceMessage | *Boolean*                                        | `false`                           | If true this message will replace old(er) message(s)                                                   |
 | closeOnClick      | true, false               | true                           | If true, the message is closed on click                                  |
+| details           | true, false               | true                           | If message is present then its open by default        |
+| id                | Any string                | ''                             | Set id to notification so it can be later removed      |
 
 #### Returning value
 
@@ -170,6 +175,7 @@ Every "show" method returns a promise that resolves a notification scope with th
 |          Method name           |                                                   Description                                                    |
 |--------------------------------|------------------------------------------------------------------------------------------------------------------|
 | notificationScope.kill(isHard) | Remove the specific message<br>isHard - if false or omitted kill message with fadeout effect (default). If true - immediately remove the message|
+| notificationScope.toggleDetails() | Method for toggling message content |
 
 
 

@@ -26,6 +26,7 @@ angular.module('ui-notification').provider('Notification', function () {
     container: 'body',
     priority: 10,
     details: true,
+    id: '',
   };
 
   this.setOptions = function (options) {
@@ -64,6 +65,7 @@ angular.module('ui-notification').provider('Notification', function () {
       args.closeOnClick = (args.closeOnClick !== null && args.closeOnClick !== undefined) ? args.closeOnClick : options.closeOnClick;
       args.container = args.container ? args.container : options.container;
       args.priority = args.priority ? args.priority : options.priority;
+      args.id = args.id || '';
 
       var template = $templateCache.get(args.template);
 
@@ -155,6 +157,7 @@ angular.module('ui-notification').provider('Notification', function () {
         templateElement._positionX = args.positionX;
         templateElement._priority = args.priority;
         templateElement.addClass(args.type);
+        templateElement.addClass(args.id);
 
         var closeEvent = function (e) {
           e = e.originalEvent || e;
@@ -268,6 +271,14 @@ angular.module('ui-notification').provider('Notification', function () {
     notify.clearAll = function () {
       angular.forEach(messageElements, function (element) {
         element.addClass('killed');
+      });
+    };
+
+    notify.clearById = function (id) {
+      angular.forEach(messageElements, function (element) {
+        if(element.hasClass(id)) {
+          element.addClass('killed');
+        }
       });
     };
 
