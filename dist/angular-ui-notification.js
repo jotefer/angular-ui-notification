@@ -65,6 +65,7 @@ angular.module('ui-notification').provider('Notification', function () {
       args.closeOnClick = (args.closeOnClick !== null && args.closeOnClick !== undefined) ? args.closeOnClick : options.closeOnClick;
       args.container = args.container ? args.container : options.container;
       args.priority = args.priority ? args.priority : options.priority;
+      args.details = args.details || options.details;
       args.id = args.id || '';
 
       var template = $templateCache.get(args.template);
