@@ -230,7 +230,7 @@ angular.module('ui-notification').provider('Notification', function () {
 
         scope.toggleDetails = function () {
           scope.details = !scope.details;
-          $timeout(reposite);
+          $timeout(reposite, 50);
         };
 
         $timeout(reposite);
