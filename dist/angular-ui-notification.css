@@ -31,9 +31,9 @@
 }
 .ui-notification.killed
 {
-    -webkit-transition: opacity ease .5s;
-         -o-transition: opacity ease .5s;
-            transition: opacity ease .5s;
+    -webkit-transition: opacity ease 1s;
+         -o-transition: opacity ease 1s;
+            transition: opacity ease 1s;
 
     opacity: 0;
 }
