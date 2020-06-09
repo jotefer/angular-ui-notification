@@ -39,6 +39,8 @@ angular.module('ui-notification').provider('Notification', function () {
     var messageElements = [];
     var isResizeBound = false;
 
+    var uniqueNotifications = [];
+
     var notify = function (args, t) {
       var deferred = $q.defer();
 
@@ -88,6 +90,15 @@ angular.module('ui-notification').provider('Notification', function () {
         scope.onClose = args.onClose;
         scope.onClick = args.onClick;
         scope.details = args.details;
+        scope.uniqueNotification = args.unique || false;
+
+        if(scope.uniqueNotification && args.id) {
+          if(uniqueNotifications.indexOf(args.id) > -1) {
+            return false;
+          }
+
+          uniqueNotifications.push(args.id);
+        }
 
         var priorityCompareTop = function (a, b) {
           return a._priority - b._priority;

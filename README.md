@@ -164,9 +164,10 @@ Also you can pass the "scope" option. This is an angular scope option Notificati
 | positionY      | "top", "bottom"                                  | `"top"`                           |                                                                                                        |
 | positionX      | "right", "left", "center"                        | `"right"                          |                                                                                                        |
 | replaceMessage | *Boolean*                                        | `false`                           | If true this message will replace old(er) message(s)                                                   |
-| closeOnClick      | true, false               | true                           | If true, the message is closed on click                                  |
-| details           | true, false               | true                           | If message is present then its open by default        |
+| closeOnClick      | *Boolean*               | true                           | If true, the message is closed on click                                  |
+| details           | *Boolean*              | true                           | If message is present then its open by default        |
 | id                | Any string                | ''                             | Set id to notification so it can be later removed      |
+| unique            | *Boolean*               | false                             | If set notification with given id will be displayed only once      |
 
 #### Returning value
 
