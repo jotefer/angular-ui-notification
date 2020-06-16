@@ -287,6 +287,20 @@ angular.module('ui-notification').provider('Notification', function () {
       });
     };
 
+    notify.clearAllUnique = function () {
+      uniqueNotifications = [];
+    };
+
+    notify.clearUniqueById = function (id) {
+      var index = uniqueNotifications.findIndex(function (not) {
+        return not === id;
+      });
+
+      if (index > -1) {
+        uniqueNotifications.splice(index, 1);
+      }
+    };
+
     return notify;
   };
 });
